@@ -1,6 +1,7 @@
 var request = require("supertest");
 var expect = require('chai').expect;
 var rewire = require('rewire');
+var cheerio = require("cheerio");
 var app = rewire('../app');
 
 describe("Dictionary App", function () {
