@@ -17,7 +17,9 @@ describe("Dictionary App", function () {
 
           var pageHeading = $("body>h1:first-child").text();
 
-          expect(pageHeading).to.equal("Ski Dictionary");
+          expect(pageHeading).to.equal("Skier Dictionary");
+
+          done();
 
         });
 
