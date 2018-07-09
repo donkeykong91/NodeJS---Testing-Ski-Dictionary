@@ -10,7 +10,15 @@ describe("Dictionary App", function () {
       request(app)
         .get("/")
         .expect(200)
-        .end(done);
+        .end(function (err, res) {
+
+          var $ = cheerio.load(res.text);
+
+          var pageHeading = $("body>h1:first-child").text();
+
+          expect(pageHeading).to.equal("Ski Dictionary");
+
+        });
 
     });
 
