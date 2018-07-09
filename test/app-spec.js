@@ -34,10 +34,20 @@ describe("Dictionary App", function () {
 
         it("GETS dictionary-api", function (done) {
 
+          var defs = this.defs;
+
           request(app)
             .get("/dictionary-api")
             .expect(200)
-            .end(done);
+            .end(function (err, res) {
+
+              var terms = JSON.parse(res.text);
+
+              expect(terms).to.deep.equal(defs);
+
+              done();
+
+            });
 
         });
 
